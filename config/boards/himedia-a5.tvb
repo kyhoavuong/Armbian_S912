@@ -1,0 +1,24 @@
+# HiMedia A5 (Amlogic S912 / Meson GXM)
+BOARD_NAME="HiMedia A5"
+BOARD_VENDOR="generic"
+BOARD_MAINTAINER="community"
+BOARDFAMILY="meson-gxl"
+ARCH="arm64"
+INTRODUCED="2017"
+
+KERNEL_TARGET="oldlts"
+KERNEL_TEST_TARGET="oldlts"
+BOOT_FDT_FILE="amlogic/meson-gxm-himedia-a5.dtb"
+BOOTSIZE="512"
+BOOTFS_TYPE="fat"
+SERIALCON="ttyAML0"
+FULL_DESKTOP="yes"
+BOOT_LOGO="desktop"
+ASOUND_STATE="asound.state.mesongx"
+SRC_EXTLINUX="yes"
+SRC_CMDLINE='rootflags=data=writeback console=ttyAML0,115200n8 console=tty0'
+
+function post_family_config__uboot_himedia-a5() {
+	unset BOOTSOURCE
+	declare -g BOOTCONFIG='none'
+}

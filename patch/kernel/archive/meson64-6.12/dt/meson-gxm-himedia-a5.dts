@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+
+/dts-v1/;
+
+#include "meson-gxm.dtsi"
+#include "meson-gx-p23x-q20x.dtsi"
+
+/ {
+	compatible = "himedia,a5", "amlogic,s912", "amlogic,meson-gxm";
+	model = "HiMedia A5";
+};
+
+/* S912 Mali-T820 is always powered on on this board. */
+&mali {
+	status = "okay";
+};
+
+/* Expose raw rc-core events until the HiMedia remote protocol is captured. */
+&ir {
+	status = "okay";
+};
